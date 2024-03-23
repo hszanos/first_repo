@@ -1,9 +1,11 @@
 list1 = [1, [2, 3, [4, [5, 6], 7]], 8, 9, [[10]]]
 
-def flatten_list(list_to_flatten):
-    flat_list = []
-    for row in list_to_flatten:
-        flat_list.extend(row)
-    return flat_list
+def flat_list(lst, re_list = []):
+    for item in lst:
+        if type(item) is int:
+            re_list.append(item)
+        else:
+            flat_list(item)
+    return(re_list)
 
-print(flatten_list(list1))
+print(flat_list((list1)))
